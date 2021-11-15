@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  height: 45px;
+  padding-top: 2%;
+  padding-right: 9%;
+  padding-left: 9%;
+  padding-bottom: 2%;
+}
+.header-title {
+  font-size: 60px;
+  font-style: italic;
+  color: #7e7ecf;
+  font-weight: 500;
+}
+
+nav {
+  position: relative;
+}
+
+.burger {
+  display: block;
+  position: relative;
+  width: 3.5rem;
+  height: 2rem;
+  text-indent: -999em;
+  cursor: pointer;
+}
+
+.burger__line {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 3.5rem;
+  height: 0.4rem;
+  transition: top 0.4s ease-out, transform 0.4s ease-out;
+  background-color: #7e7ecf !important;
+}
+.burger__line:nth-child(1) {
+  top: 0;
+}
+.burger__line:nth-child(2) {
+  top: 1.25rem;
+}
+.burger__line:nth-child(3) {
+  top: 2.5rem;
+}
+
+.burger--clicked .burger__line:nth-child(1) {
+  top: 1.25rem;
+  transform: rotate(45deg);
+  z-index: 9;
+  background-color: #ba7d85;
+}
+.burger--clicked .burger__line:nth-child(2) {
+  transform: translateX(100%) scale(0);
+}
+
+.burger--clicked .burger__line:nth-child(3) {
+  top: 1.25rem;
+  transform: rotate(-45deg);
+  z-index: 9;
+  background-color: #ba7d85;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: absolute;
+  width: 380px;
+  height: calc(100vh + 20px);
+  margin: -100px 0 0;
+  padding: 125px 50px 50px;
+  left: calc(675px - 50vw);
+  background: linear-gradient(40deg, #f4c1c0, #ba7d85);
+  list-style-type: none;
+  transform-origin: 0 0;
+  transform: translate(-100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  top: 49px;
+  z-index: 5;
+}
+
+.menu__item {
+  padding: 10px 0;
+  font-size: 22px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 0 0 60px;
+  color: #fff;
+  min-width: 145px;
+  text-align: left;
+}
+
+.menu__item.active {
+  color: #ba7d85;
+}
+
+.menuActive {
+  transform: translate(0);
+}
+
+.switch {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: #7e7ecf;
+  border-radius: 34px;
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.switch-input {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+.switch-label {
+  position: relative;
+  background: linear-gradient(40deg, #7e7ecf, #dc92e0);
+  transition: 0.15s ease-out;
+  line-height: 40px;
+  display: block;
+  border-radius: 34px;
+}
+
+.switch-label::before {
+  content: 'train';
+  margin-left: 10px;
+}
+
+.switch-label::after {
+  content: '';
+}
+
+.switch-label-play::before {
+  content: '';
+}
+
+.switch-label-play::after {
+  content: 'play';
+  margin-left: 40px;
+}
+
+.switch-handle {
+  position: absolute;
+  border-radius: 34px;
+  background: #fff;
+  top: 10%;
+  left: 65px;
+  width: 33px;
+  height: 33px;
+}
+
+.switch-label-play {
+  background: linear-gradient(40deg, #f4c1c0, #ba7d85);
+}
+
+.switch-handle-active {
+  left: 2px;
+}
