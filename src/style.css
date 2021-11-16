@@ -79,7 +79,7 @@ nav {
   height: calc(100vh + 20px);
   margin: -100px 0 0;
   padding: 125px 50px 50px;
-  left: calc(675px - 50vw);
+  left: calc(675px - 49vw);
   background: linear-gradient(40deg, #f4c1c0, #ba7d85);
   list-style-type: none;
   transform-origin: 0 0;
