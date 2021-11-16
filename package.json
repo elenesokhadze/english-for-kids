@@ -1,0 +1,36 @@
+{
+  "name": "english-for-kids",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  },
+  "start": "webpack serve",
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.2.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint --fix --ext .js, .",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elenesokhadze/english-for-kids.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elenesokhadze/english-for-kids/issues"
+  },
+  "homepage": "https://github.com/elenesokhadze/english-for-kids#readme",
+  "browserslist": "> 0.25%, not dead"
+}
