@@ -3,6 +3,14 @@ body {
   padding: 0;
 }
 
+.myOne {
+  width: 100%;
+  background-color: #a9a9e4;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -370,23 +378,21 @@ nav {
 }
 
 .failure {
-  /* width: 80vw;
-  height: 100vh; */
+  width: 80vw;
+  height: 100vh;
   background-image: url(../assets/img/failure.png);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-size: 40% 55%, cover;
-  background-position: 50%; */
+  background-repeat: no-repeat;
+  background-size: 40% 55%, cover;
+  background-position: 50%;
 }
 
 .success {
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  width: 80vw;
+  height: 100vh;
+  background-size: 40% 55%, cover;
+  background-position: 50%;
   background-image: url(../assets/img/success.jpg);
 }
 
@@ -405,8 +411,9 @@ nav {
 
 .text {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: 100% !important;
 }
 
 .rotate-none {

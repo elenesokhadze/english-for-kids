@@ -1,8 +1,8 @@
 import { count, cards } from './data.js';
-let state = false;
+let rotateBack = false;
 let play = false;
 let page;
-let gameStart = true;
+let startGame = true;
 let correct = 0;
 let currentSound = 0;
 let errors = 0;
@@ -51,15 +51,15 @@ document.querySelector('.switch').addEventListener('mouseup', () => {
 document.querySelectorAll('.rotate').forEach((key) => {
   key.addEventListener('click', () => {
     key.parentElement.classList.toggle('flip-card');
-    state = true;
+    rotateBack = true;
   });
 });
 
 document.querySelectorAll('.card').forEach((key) => {
   key.addEventListener('mouseleave', () => {
-    if (state) {
+    if (rotateBack) {
       key.classList.toggle('flip-card');
-      state = false;
+      rotateBack = false;
     }
   });
 });
@@ -97,7 +97,7 @@ document.querySelectorAll('.menu__item').forEach((key) => {
         i++;
       });
       i = 0;
-      document.querySelectorAll('.card-header-back').forEach((key) => {
+      document.querySelectorAll('.card-header--back').forEach((key) => {
         j = count[i];
         key.innerHTML = cards[page][j].translation;
         i++;
@@ -163,7 +163,7 @@ document.querySelectorAll('.main-card').forEach((key) => {
       i++;
     });
     i = 0;
-    document.querySelectorAll('.card-header-back').forEach((key) => {
+    document.querySelectorAll('.card-header--back').forEach((key) => {
       j = count[i];
       key.innerText = cards[page][j].translation;
       i++;
@@ -179,7 +179,7 @@ document.querySelectorAll('.main-card').forEach((key) => {
 });
 
 document.querySelector('.btn--start').addEventListener('click', () => {
-  if (gameStart) {
+  if (startGame) {
     for (let i = 0; i < 8; i++) {
       sound.push(cards[page][count[i]].audioSRC);
       cards.sound[cards[page][count[i]].audioSRC] = count[i];
@@ -189,7 +189,7 @@ document.querySelector('.btn--start').addEventListener('click', () => {
     document.querySelectorAll('.card--front').forEach((key) => {
       key.classList.add('front-play');
     });
-    gameStart = false;
+    startGame = false;
     console.log(sound);
   }
   document.querySelector('.sound').src = sound[currentSound];
@@ -234,6 +234,7 @@ function goBackToMain() {
   document.querySelector('.btn-container').classList.add('display-none');
   document.querySelector('.rating').classList.add('text');
   document.querySelector('.header').classList.add('display-none');
+  document.createElement('div').classList.add('myOne');
   if (errors === 0) {
     document.body.classList.add('success');
     setTimeout(() => {
@@ -241,6 +242,7 @@ function goBackToMain() {
     }, 3000);
     document.querySelector('.rating').innerHTML = 'win!';
     document.querySelector('.soundEffect').src = 'assets/audio/success.mp3';
+    document.querySelector('.myOne').innerHTML = 'win!';
   } else {
     document.body.classList.add('failure');
     setTimeout(() => {
@@ -248,9 +250,11 @@ function goBackToMain() {
     }, 3000);
     document.querySelector('.rating').innerHTML = `${errors} errors`;
     document.querySelector('.soundEffect').src = 'assets/audio/failure.mp3';
+    document.querySelector('.myOne').innerHTML = `${errors} errors`;
   }
   setTimeout(() => {
     document.querySelector('.rating').innerHTML = '';
+    document.querySelector('.myOne').innerHTML = '';
   }, 3000);
   setTimeout(() => {
     defaultRemove();
@@ -262,6 +266,7 @@ function goBackToMain() {
     });
     document.querySelector('.header').classList.remove('display-none');
     document.querySelector('.rating').classList.remove('text');
+    document.querySelector('.myOne').classList.remove('myOne');
     document.querySelector('.btn-container').classList.remove('display-none');
     document.querySelector('.active').classList.remove('active');
     document.querySelector('.menu__item').classList.add('active');
@@ -291,7 +296,7 @@ function defaultRemove() {
     key.remove();
   });
   sound = [];
-  gameStart = true;
+  startGame = true;
   correct = 0;
   currentSound = 0;
   errors = 0;
