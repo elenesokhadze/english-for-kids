@@ -3,14 +3,6 @@ body {
   padding: 0;
 }
 
-.myOne {
-  width: 100%;
-  background-color: #a9a9e4;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .header {
   display: flex;
   justify-content: space-between;

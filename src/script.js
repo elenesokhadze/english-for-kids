@@ -234,7 +234,6 @@ function goBackToMain() {
   document.querySelector('.btn-container').classList.add('display-none');
   document.querySelector('.rating').classList.add('text');
   document.querySelector('.header').classList.add('display-none');
-  document.createElement('div').classList.add('myOne');
   if (errors === 0) {
     document.body.classList.add('success');
     setTimeout(() => {
@@ -242,7 +241,6 @@ function goBackToMain() {
     }, 3000);
     document.querySelector('.rating').innerHTML = 'win!';
     document.querySelector('.soundEffect').src = 'assets/audio/success.mp3';
-    document.querySelector('.myOne').innerHTML = 'win!';
   } else {
     document.body.classList.add('failure');
     setTimeout(() => {
@@ -250,11 +248,9 @@ function goBackToMain() {
     }, 3000);
     document.querySelector('.rating').innerHTML = `${errors} errors`;
     document.querySelector('.soundEffect').src = 'assets/audio/failure.mp3';
-    document.querySelector('.myOne').innerHTML = `${errors} errors`;
   }
   setTimeout(() => {
     document.querySelector('.rating').innerHTML = '';
-    document.querySelector('.myOne').innerHTML = '';
   }, 3000);
   setTimeout(() => {
     defaultRemove();
@@ -266,7 +262,6 @@ function goBackToMain() {
     });
     document.querySelector('.header').classList.remove('display-none');
     document.querySelector('.rating').classList.remove('text');
-    document.querySelector('.myOne').classList.remove('myOne');
     document.querySelector('.btn-container').classList.remove('display-none');
     document.querySelector('.active').classList.remove('active');
     document.querySelector('.menu__item').classList.add('active');
